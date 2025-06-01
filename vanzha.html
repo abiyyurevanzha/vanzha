@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Abiyyu Revanzha's Geology Links</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      /* Blue gradient instead of green */
+      background: linear-gradient(180deg, #004e92, #000428);
+      color: #d0e7ff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Contour lines background - SVG pattern with blue stroke */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><path fill="none" stroke="%231e90ff" stroke-width="1" d="M0 100 Q50 70 100 100 T200 100 M0 130 Q50 110 100 130 T200 130 M0 160 Q50 140 100 160 T200 160"/></svg>') repeat;
+      opacity: 0.12;
+      animation: contourMove 30s linear infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    @keyframes contourMove {
+      0% { background-position: 0 0; }
+      100% { background-position: 400px 0; }
+    }
+
+    /* Rock texture overlay with blue tint */
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: url('https://www.transparenttextures.com/patterns/rocks.png') repeat;
+      opacity: 0.06;
+      filter: hue-rotate(190deg) saturate(1.5); /* Tint to blue */
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 480px;
+      background-color: rgba(208, 231, 255, 0.15);
+      backdrop-filter: blur(16px);
+      border-radius: 20px;
+      padding: 2rem 2rem 3rem;
+      text-align: center;
+      box-shadow: 0 12px 30px rgba(30, 144, 255, 0.4);
+      position: relative;
+      z-index: 1;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeSlideUp 1s forwards ease-out;
+      animation-delay: 0.3s;
+    }
+
+    @keyframes fadeSlideUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .avatar {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #66b3ff;
+      margin-bottom: 1rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 15px rgba(102, 179, 255, 0.5);
+      cursor: pointer;
+      animation: fadeSlideUp 1s forwards ease-out;
+      animation-delay: 0.6s;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .avatar:hover {
+      transform: scale(1.07);
+      box-shadow: 0 6px 22px rgba(102, 179, 255, 0.9);
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.25rem;
+      color: #a9d1ff;
+      text-shadow: 0 0 6px #66b3ffaa;
+      animation: fadeSlideUp 1s forwards ease-out;
+      animation-delay: 0.9s;
+      opacity: 0;
+      transform: translateY(20px);
+      font-weight: 600;
+    }
+
+    p {
+      color: #a0cfff;
+      margin-bottom: 2.5rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      animation: fadeSlideUp 1s forwards ease-out;
+      animation-delay: 1.1s;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      background: #d0e7ff;
+      color: #004e92;
+      padding: 1.15rem;
+      margin: 1rem 0;
+      border-radius: 18px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 18px rgba(30, 144, 255, 0.2);
+      font-size: 1.1rem;
+      cursor: pointer;
+      animation: fadeSlideUp 1s forwards ease-out;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    /* Stagger link animations */
+    .link:nth-child(6) { animation-delay: 1.3s; }
+    .link:nth-child(7) { animation-delay: 1.5s; }
+    .link:nth-child(8) { animation-delay: 1.7s; }
+    .link:nth-child(9) { animation-delay: 1.9s; }
+
+    .link:hover {
+      background: #a6d1ff;
+      color: #002f6c;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(30, 144, 255, 0.5);
+    }
+
+    .link .icon {
+      width: 26px;
+      height: 26px;
+      object-fit: contain;
+      transition: transform 0.3s ease, filter 0.3s ease;
+      filter: drop-shadow(0 0 1px rgba(0,0,0,0.1));
+      animation: pulse 2.5s infinite ease-in-out;
+    }
+
+    .link:hover .icon {
+      transform: scale(1.3);
+      filter: drop-shadow(0 0 6px rgba(30, 144, 255, 0.8));
+      animation-play-state: paused;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        filter: drop-shadow(0 0 1px rgba(0,0,0,0.1));
+        transform: scale(1);
+      }
+      50% {
+        filter: drop-shadow(0 0 6px rgba(102, 179, 255, 0.9));
+        transform: scale(1.1);
+      }
+    }
+
+    footer {
+      margin-top: 2.5rem;
+      font-size: 0.85rem;
+      color: #a0cfff99;
+      font-style: italic;
+      letter-spacing: 0.05em;
+      animation: fadeSlideUp 1s forwards ease-out;
+      animation-delay: 2.2s;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.6rem;
+      }
+      .link {
+        font-size: 1rem;
+        padding: 1rem;
+      }
+      .avatar {
+        width: 110px;
+        height: 110px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="profile.JPG" alt="Abiyyu Revanzha's Profile Photo" class="avatar" />
+    <h1>Abiyyu Daffa Revanzha</h1>
+    <p>Let’s connect and collaborate!</p>
+
+    <a href="https://www.instagram.com/r.vanzha/" class="link" target="_blank" rel="noopener noreferrer">
+      <img src="ig.png" class="icon" alt="Instagram Logo" />
+      Instagram
+    </a>
+    
+    <a href="http://wa.me/6285389174364" class="link" target="_blank" rel="noopener noreferrer">
+      <img src="wa.png" class="icon" alt="WhatsApp Logo" />
+      WhatsApp
+    </a>
+
+    <a href="https://www.linkedin.com/in/abiyyurevanzha/" class="link" target="_blank" rel="noopener noreferrer">
+      <img src="li.png" class="icon" alt="LinkedIn Logo" />
+      LinkedIn
+    </a>
+    
+    <a href="mailto:abiyyudaffarevanzha@gmail.com" class="link">
+      <img src="email.png" class="icon" alt="Email Icon" />
+      Email Me
+    </a>
+    
+    <footer>Let's Connect</footer>
+  </div>
+</body>
+</html>
